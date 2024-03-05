@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import Movie from "../componet/Movie";
-import { Movies } from "../interface/movies";
+import { IMovie } from "../interface/IMovie";
 
 function Detail() {
 
   const [loading, setLoading] = useState<boolean>(true);
-  const [movie, setMovie] = useState<Movies>({} as Movies); // 초기값 주는 방법
+  const [movie, setMovie] = useState<IMovie>({} as IMovie); // 초기값 주는 방법
 
   const { id } = useParams();
 
@@ -16,11 +16,7 @@ function Detail() {
       await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
     ).json();
 
-    console.log(json.data.movie)
     setMovie(json.data.movie);
-
-    console.log(movie) // 언디파인드(초기값 안주면)
-
     setLoading(false);
   };
 

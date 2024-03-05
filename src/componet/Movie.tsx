@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 
-import { Movies } from "../interface/movies";
+import { IMovie } from "../interface/IMovie";
 
-function Movie({ id, medium_cover_image, title, summary, genres }: Movies) {
+function Movie({ id, medium_cover_image, title, summary, genres }: IMovie) {
   return (
     <div>
       <img src={medium_cover_image} alt={title} />
       <h2>
-        <Link to={`/movie/${id}`}>Title : {title}</Link>
+        <Link to={`/movies/${id}`}>Title : {title}</Link>
       </h2>
       <p><strong>Summary :</strong> {summary}</p>
       <strong>genres</strong>
